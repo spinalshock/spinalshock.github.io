@@ -22,7 +22,7 @@ const renderers = {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
       <SyntaxHighlighter
-        style={dracula} // You can change this to other Prism themes
+        style={dracula}
         language={match[1]}
         PreTag="div"
         {...props}
@@ -44,27 +44,8 @@ const Paste = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [command, setCommand] = useState("");
-  const editorRef = useRef(null); // Ref for the MDEditor container
-  const lastKeyPressTime = useRef(0); // Ref for the y command
-
-  // New state for MDX content
-  const [mdxContent, setMdxContent] = useState(null);
-
-  // Update MDX content when markdown changes
-  useEffect(() => {
-    const processMdx = async () => {
-      try {
-        const code = String(
-          await compile(content, { outputFormat: "function-body" }),
-        );
-        const Content = new Function(code)({ ...runtime }).default;
-        setMdxContent(<Content components={mdxComponents} />);
-      } catch (error) {
-        console.error("MDX compilation failed:", error);
-      }
-    };
-    processMdx();
-  }, [content]);
+  const editorRef = useRef(null);
+  const lastKeyPressTime = useRef(0);
 
   // Focus the MDEditor when entering edit mode
   useEffect(() => {
@@ -112,7 +93,6 @@ const Paste = () => {
     initZstd();
   }, []);
 
-  // Handle save functionality
   const handleSave = () => {
     if (!isZstdReady) return;
 

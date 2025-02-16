@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-// Handle copy functionality
+
 const handleCopyContent = (content) => {
   navigator.clipboard
     .writeText(content)
@@ -13,7 +13,6 @@ const handleCopyContent = (content) => {
     });
 };
 
-// Handle copy functionality
 const handleCopyUrl = () => {
   navigator.clipboard
     .writeText(window.location.href)
@@ -27,14 +26,12 @@ const handleCopyUrl = () => {
     });
 };
 
-// Handle clear functionality
 const handleClear = (setContent) => {
   setContent("");
   console.log("Content cleared");
   toast.info("Content cleared");
 };
 
-// Handle paste functionality
 const handlePaste = async (setContent) => {
   try {
     const text = await navigator.clipboard.readText();
