@@ -99,8 +99,8 @@ button:disabled {
   padding: 1rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 4px;
-  min-height: 500px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .todo-item {

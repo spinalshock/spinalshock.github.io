@@ -7,7 +7,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Om Athalye",
   tagline: "Senior Software Engineer at Wealthy",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon_1.ico",
 
   // Set the production url of your site here
   url: "https://spinalshock.github.io",
@@ -84,12 +84,12 @@ const config: Config = {
         groupByYear: true,
       },
     },
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/embed-pic.png",
     navbar: {
       title: "Om Athalye",
       logo: {
         alt: "My Site Logo",
-        src: "img/logo.svg",
+        src: "img/favicon-32x32.png",
       },
       items: [
         {
