@@ -17,3 +17,18 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+tech:
+  label: Tech
+  permalink: /tech
+  description: Articles on technology and programming
+
+gaming:
+  label: Gaming
+  permalink: /gaming
+  description: Articles on games I've played
+
+reflections:
+  label: Reflections
+  permalink: /reflections
+  description: Reflections on life and personal growth

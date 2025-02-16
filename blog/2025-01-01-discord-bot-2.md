@@ -5,7 +5,7 @@ authors: [om]
 tags: [docusaurus]
 ---
 
-### **Blog 2: Building a Gym Record Bot with SQLite**
+### **Building a Gym Record Bot with SQLite(Part 2: of Discord bot series)**
 
 Along with listening to music with friends, I also used discord to share my latest Gym PRs and compete with friends. So I decided to extend the music bot to also have this capability. The basic usecase was integrate a database and maintain my personal lifts, along with lifts of my friends. In the future, a leaderboard can be created for each lift. 
 

@@ -20,6 +20,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  /* --ifm-color-primary: #0d8d4f; */
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -32,4 +33,160 @@
 
 .footer--dark {
   background-color: #1b1b1d;
+}
+
+.pastebin {
+  background-color: #1b1b1d;
+  width: 100%;
+  height: 90vh;
+  color: white;
+}
+
+kbd {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font: revert;
+}
+
+kbd > kbd {
+  margin: 0.75em;
+  color: midnightblue;
+  background-color: aliceblue;
+  border-radius: 3px;
+  padding-inline: 5px;
+  box-shadow: 2px 2px 0 3px lightsteelblue;
+  &:last-child {
+    margin-inline-end: 4px;
+  }
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.mdx-editor-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.editor-toolbar {
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.mdx-preview {
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  min-height: 500px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.help-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.help-modal > div {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.help-modal h2 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+  font-size: 1.5rem;
+}
+
+.help-modal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.help-modal ul > li {
+  margin: 1em;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .help-modal > div {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  .help-modal h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.w-md-editor-input > .w-md-editor-text {
+  line-height: 1.6 !important;
+}
+
+.vim-status {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #2d2d2d;
+  color: #ffffff;
+  padding: 4px 12px;
+  font-family: monospace;
+  font-size: 14px;
+  z-index: 999;
+  border-radius: 0 4px 0 0;
 }

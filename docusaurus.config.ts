@@ -45,6 +45,8 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarCount: "ALL",
+          blogSidebarTitle: "All blog posts",
           feedOptions: {
             type: ["rss", "atom"],
             xslt: true,
@@ -64,9 +66,13 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
+    colorMode: {
+      defaultMode: "dark",
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     docs: {
       sidebar: {
         hideable: true,
