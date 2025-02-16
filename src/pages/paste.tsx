@@ -103,7 +103,7 @@ const Paste = () => {
       if (inputBuffer.length < MIN_INPUT_LENGTH) {
         encodedContent = "P:" + uint8ArrayToBase64(inputBuffer);
       } else {
-        const compressed = zstdModule.ZstdSimple.compress(inputBuffer, 5);
+        const compressed = zstdModule.ZstdSimple.compress(inputBuffer, 22);
         encodedContent = "C:" + uint8ArrayToBase64(compressed);
       }
 

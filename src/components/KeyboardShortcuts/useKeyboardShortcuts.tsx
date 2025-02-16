@@ -14,7 +14,7 @@ interface KeyboardShortcutsProps {
   content: string;
   setContent: (content: string) => void;
   handleSave: () => void;
-  setShowHelp: (value: boolean) => void; // Added this since it's used
+  setShowHelp: (value: boolean) => void;
 }
 
 const useKeyboardShortcuts = ({

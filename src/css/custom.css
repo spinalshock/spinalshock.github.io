@@ -100,6 +100,7 @@ button:disabled {
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 4px;
   min-height: 500px;
+  height: 100vh;
 }
 
 .todo-item {

@@ -14,15 +14,24 @@ const handleCopyContent = (content) => {
 };
 
 const handleCopyUrl = () => {
-  navigator.clipboard
-    .writeText(window.location.href)
-    .then(() => {
-      console.log("URL copied to clipboard");
-      toast.success("URL yanked!");
+  fetch(`https://tinyurl.com/api-create.php?url=${window.location.href}`)
+    .then(async (res) => await res.text())
+    .then((res) => {
+      navigator.clipboard
+        .writeText(res)
+        .then(() => {
+          console.log("URL copied to clipboard");
+          toast.success("URL yanked!");
+        })
+        .catch((error) => {
+          console.error("Failed to copy URL:", error);
+          toast.error("Failed to copy URL");
+        });
     })
     .catch((error) => {
-      console.error("Failed to copy URL:", error);
-      toast.error("Failed to copy URL");
+      console.error("Failed to shorten URL:", error);
+      toast.error("Failed to shorten URL");
+      navigator.clipboard.writeText(window.location.href);
     });
 };
 
