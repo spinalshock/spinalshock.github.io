@@ -177,6 +177,11 @@ button:disabled {
 
 .w-md-editor-input > .w-md-editor-text {
   line-height: 1.6 !important;
+  min-height: 100vh !important;
+}
+
+.w-md-editor-input > .w-md-editor-text > textarea {
+  min-height: 100vh !important;
 }
 
 .vim-status {
@@ -190,4 +195,12 @@ button:disabled {
   font-size: 14px;
   z-index: 999;
   border-radius: 0 4px 0 0;
+}
+
+.task-list-item {
+  list-style-type: none;
+  margin-left: -20px;
+  &:has(input[type="checkbox"]:checked) {
+    color: var(--ifm-color-primary);
+  }
 }
