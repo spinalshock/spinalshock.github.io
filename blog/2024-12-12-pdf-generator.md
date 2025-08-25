@@ -2,7 +2,7 @@
 slug: pdf-generator
 title: Building a PDF Generator with Puppeteer, Express, and Nunjucks
 authors: [om]
-tags: [docusaurus]
+tags: [javascript]
 ---
 
 # Building a PDF Generator with Puppeteer, Express, and Nunjucks
@@ -10,6 +10,7 @@ tags: [docusaurus]
 In this blog, I’ll walk you through how I built a PDF generator for a Node.js backend service using Puppeteer for PDF rendering, Express for serving HTTP requests, and Nunjucks for HTML templating. The solution is efficient, caching previously generated PDFs to save resources, and it even manages cache cleanup to prevent overloading the system.
 
 <!-- truncate -->
+
 ## Why I Chose Puppeteer, Express, and Nunjucks
 
 - **Puppeteer**: A powerful headless browser automation library that allows precise control over rendering HTML into PDFs. Previously I used `wkhtmltopdf` library, however its not maintained, has rudimentary css support, and almost no javascript support. So rendering charts and graphs was not possible with it along with designing complex layouts.
