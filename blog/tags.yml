@@ -1,22 +1,7 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
 
 tech:
   label: Tech
@@ -32,3 +17,33 @@ reflections:
   label: Reflections
   permalink: /reflections
   description: Reflections on life and personal growth
+
+go:
+  label: Go
+  permalink: /go
+  description: Articles on Go
+
+javascript:
+  label: Javascript
+  permalink: /js
+  description: Articles on Javascript
+
+git:
+  label: Git
+  permalink: /git
+  description: Articles on Git
+
+react:
+  label: React
+  permalink: /react
+  description: Articles on React and related frameworks
+
+lua:
+  label: Lua
+  permalink: /lua
+  description: Lua snippets and plugins
+
+neovim:
+  label: Neovim
+  permalink: /neovim
+  description: Articles on my favorite Text Editor
