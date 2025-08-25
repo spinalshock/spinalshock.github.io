@@ -6,36 +6,13 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { toast, ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { compile } from "@mdx-js/mdx";
-import * as runtime from "react/jsx-runtime";
-import { mdxComponents } from "../components/MdxComponents"; // Your custom MDX components
-import { uint8ArrayToBase64, base64ToUint8Array } from "../utils/zstd-helper";
+import { uint8ArrayToBase64, base64ToUint8Array } from "../utils/base64-helper";
 import KeyboardShortcuts from "../components/KeyboardShortcuts";
 import useKeyboardShortcuts from "../components/KeyboardShortcuts/useKeyboardShortcuts";
+import { mdxComponents } from "../components/MdxComponents";
+import renderers from "../components/MdxComponents/Codeblock";
 
 const MIN_INPUT_LENGTH = 100;
-
-const renderers = {
-  code({ node, inline, className, children, ...props }) {
-    const match = /language-(\w+)/.exec(className || "");
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={dracula}
-        language={match[1]}
-        PreTag="div"
-        {...props}
-      >
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
-    ) : (
-      <code className={className} {...props}>
-        {children}
-      </code>
-    );
-  },
-};
 
 const Paste = () => {
   const [content, setContent] = useState("");
@@ -44,8 +21,8 @@ const Paste = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [command, setCommand] = useState("");
+  const [editor, setEditor] = useState(false);
   const editorRef = useRef(null);
-  const lastKeyPressTime = useRef(0);
 
   // Focus the MDEditor when entering edit mode
   useEffect(() => {
@@ -67,6 +44,7 @@ const Paste = () => {
 
         const url = new URL(window.location.href);
         const encodedContent = url.searchParams.get("content");
+        const userEditor = url.searchParams.get("editor");
         if (encodedContent) {
           try {
             if (encodedContent.startsWith("C:")) {
@@ -84,6 +62,10 @@ const Paste = () => {
             console.error("Decompression failed:", error);
             toast.error("Failed to load content");
           }
+        }
+
+        if (userEditor === "nvim") {
+          setEditor(true);
         }
       } catch (error) {
         console.error("Zstd initialization failed:", error);
@@ -131,17 +113,27 @@ const Paste = () => {
   return (
     <div>
       {isEditing ? (
-        <div ref={editorRef}>
-          <MDEditor
-            value={content}
-            onChange={setContent}
-            height={"100%"}
-            preview="edit"
-            textareaProps={{
-              style: { fontFamily: "monospace", fontSize: "16px" },
-            }}
-          />
-        </div>
+        editor ? (
+          <div ref={editorRef}>
+            <textarea
+              style={{ height: "100vh", width: "100vw" }}
+              value={content}
+              onChange={(event) => setContent(event.target.value)}
+            />
+          </div>
+        ) : (
+          <div ref={editorRef}>
+            <MDEditor
+              value={content}
+              onChange={setContent}
+              height="100%"
+              preview="edit"
+              textareaProps={{
+                style: { fontFamily: "monospace", fontSize: "16px" },
+              }}
+            />
+          </div>
+        )
       ) : (
         <div className="mdx-preview">
           <MDXProvider components={mdxComponents}>
