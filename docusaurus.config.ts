@@ -24,6 +24,17 @@ const config: Config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  // Domain verification for Algolia crawler
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: 'BFA78AE87A7D9FDF',
+      },
+    },
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -68,6 +79,39 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
+    // Algolia DocSearch configuration
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'CVMSX0G1O3',
+
+      // Public API key: it is safe to commit it
+      apiKey: '52a5485a806426a4cedd116a41c3a4c1',
+
+      indexName: 'Second-Brain',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      // externalUrlRegex: 'external\.com|domain\.com',
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      // replaceSearchResultPathname: {
+      //   from: '/docs/', // or as RegExp: /\/docs\//
+      //   to: '/',
+      // },
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+
+      // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+      insights: false,
+
+      //... other Algolia params
+    },
     colorMode: {
       defaultMode: "dark",
       disableSwitch: false,
