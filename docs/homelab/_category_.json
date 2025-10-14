@@ -1,0 +1,8 @@
+{
+  "label": "Homelab",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for homelab infrastructure, configurations, and troubleshooting guides."
+  }
+}
