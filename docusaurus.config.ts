@@ -77,21 +77,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [
-    './plugins/book-content-loader',
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'book',
-        path: 'book',
-        routeBasePath: 'new-book',
-        sidebarPath: './sidebars-book.ts',
-        editUrl: undefined,
-        showLastUpdateTime: false,
-        showLastUpdateAuthor: false,
-      },
-    ],
-  ],
+  plugins: [],
   themeConfig: {
     // Replace with your project's social card
     // Algolia DocSearch configuration
@@ -158,7 +144,6 @@ const config: Config = {
           label: "Tutorial",
         },
         { to: "/blog", label: "Blog", position: "left" },
-        { to: "/book", label: "Book", position: "left" },
         { href: "https://spinalshock.github.io/ironlogs/", label: "IronLogs", position: "left" },
         {
           href: "https://github.com/spinalshock/second-brain",
