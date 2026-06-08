@@ -26,6 +26,7 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "clsx": "^2.0.0",
     "date-fns": "^4.1.0",
+    "mermaid": "^11.15.0",
     "papaparse": "^5.5.3",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
