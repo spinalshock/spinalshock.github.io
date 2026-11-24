@@ -25,7 +25,7 @@ Kosh does not read, store or process any other email. It cannot send, change or 
 - The figures listed above, saved against the matching card in Kosh.
 - The ID of each statement email it has processed, so it doesn't read the same one twice.
 - The access token Google issues when you connect, so Kosh can check for new statements daily.
-- To open password-protected statements, the first four letters of your name and your date of birth, which you enter yourself.
+- The password for each bank's statement PDFs, which you save yourself.
 
 Statement PDFs and email contents are not kept after the figures are read.
 
@@ -39,7 +39,7 @@ Kosh's use and transfer of information received from Google APIs to any other ap
 
 ## Removing access and data
 
-You can disconnect Gmail in Kosh at any time, which deletes the stored access token. You can also remove Kosh's access from your Google account at [myaccount.google.com/permissions](https://myaccount.google.com/permissions). Ask Om to delete any figures Kosh has saved, and they will be removed.
+You can disconnect Gmail in Kosh at any time, which deletes the stored access token and statement passwords. You can also remove Kosh's access from your Google account at [myaccount.google.com/permissions](https://myaccount.google.com/permissions). Ask Om to delete any figures Kosh has saved, and they will be removed.
 
 ## Contact
 
