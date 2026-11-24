@@ -195,6 +195,11 @@ const config: Config = {
       //     ],
       //   },
       // ],
+      links: [
+        { label: "Kosh", to: "/kosh/" },
+        { label: "Kosh privacy policy", to: "/kosh/privacy/" },
+        { label: "Kosh terms of service", to: "/kosh/terms/" },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} Om Athalye`,
     },
     prism: {
